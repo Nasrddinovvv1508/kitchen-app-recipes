@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .site-container {
+        @apply max-w-7xl mx-auto w-full;
+    }
+}
+
+.no-recipe {
+    font-size: 5rem;
+    font-weight: bold;
+    opacity: 60%;
+    color: #ccc;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+}
+
+.scroll-container {
+    display: flex;
+    gap: 0.5rem;
+    /* yoki 2rem */
+    overflow-x: auto;
+    max-width: 100%;
+}
