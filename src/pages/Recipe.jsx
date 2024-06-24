@@ -31,6 +31,15 @@ function Recipe() {
     }
   }
 
+  function isValidURL(str) {
+    try {
+      new URL(str);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
   return (
     <div>
       <div className='site-container mt-10'>
@@ -78,7 +87,7 @@ function Recipe() {
                 <div className="label">
                   <span className="label-text text-lg font-semibold">Cooking time:</span>
                 </div>
-                <input onChange={handleChange} ref={cookingTime} name="numberInput" type="text" placeholder="Enter in minutes" className="input input-bordered w-[600px]" />
+                <input onChange={handleChange} ref={cookingTime} name="numberInput" type="number" placeholder="Enter in minutes" className="input input-bordered w-[600px]" />
                 <div className="label">
                 </div>
               </label>
@@ -116,11 +125,11 @@ function Recipe() {
                 <div className="flex items-center">
                   <input ref={imageValue} type="url" placeholder="Enter multiple images" className="input input-bordered w-[540px]" />
                   <button onClick={() => {
-                    if (imageValue.current.value.trim() != ``) {
+                    if (imageValue.current.value.trim() != `` && isValidURL(imageValue.current.value.trim())) {
                       setImages([...images, imageValue.current.value])
                       imageValue.current.value = ''
                     } else {
-                      console.log(false);
+                      alert(`Please, Enter true URL of image`);
                     }
                   }} type='button' className='btn btn-info w-[55px] ml-2 text-white'> <FaPlus /> </button>
                 </div>
@@ -129,6 +138,7 @@ function Recipe() {
                 </div>
               </label>
             </center>
+            
 
             <center>
               <label className="form-control">
