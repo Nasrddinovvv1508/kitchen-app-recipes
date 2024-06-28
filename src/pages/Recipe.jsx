@@ -139,7 +139,6 @@ function Recipe() {
               </label>
             </center>
             
-
             <center>
               <label className="form-control">
                 <div className="label">
@@ -150,6 +149,7 @@ function Recipe() {
                 </div>
               </label>
             </center>
+           
 
             <div className="w-[600px] grid grid-cols-2 gap-6">
               <button className="btn btn-active btn-secondary">Create</button>
